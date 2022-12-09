@@ -5,7 +5,6 @@ import {Text} from "@chakra-ui/react";
 const Home = () => {
     return (
         <div>
-            <NavbarComponent/>
             <Text textAlign={"center"}>KELIIOS</Text>
         </div>
     );

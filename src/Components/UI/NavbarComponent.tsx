@@ -1,8 +1,8 @@
-import { ReactNode } from 'react';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import {ReactNode, useEffect, useState} from 'react';
+import {HamburgerIcon, CloseIcon} from '@chakra-ui/icons';
 import {Box} from "@chakra-ui/layout";
 import {Link} from "@chakra-ui/layout";
-import {Link as LinkRoute} from "react-router-dom"
+import {Link as LinkRoute, useNavigate} from "react-router-dom"
 import {
     Avatar,
     Button,
@@ -25,10 +25,13 @@ import {
     useDisclosure
 } from "@chakra-ui/react";
 import CustomersLogin from "../Customers/CustomersLogin";
+import secureLocalStorage from "react-secure-storage";
+import {NavbarAvatar} from "./NavbarStyled";
+// import { useEffect } from 'react';
 
 const Links = ['Dashboard', 'Projects', 'Team'];
 
-const NavLink = ({ children }: { children: ReactNode }) => (
+const NavLink = ({children}: { children: ReactNode }) => (
     <Link
         px={2}
         py={1}
@@ -43,7 +46,35 @@ const NavLink = ({ children }: { children: ReactNode }) => (
 );
 
 export default function NavbarComponent() {
-    const { isOpen, onOpen, onClose } = useDisclosure();
+
+    const [isLogin, setIsLogin] = useState<any>("")
+
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        const ChekIsYouLogin = () => {
+
+            if (secureLocalStorage.getItem("Login") !== " ") {
+                setIsLogin(
+                    <LinkRoute to={"/customers"}>
+                        <NavbarAvatar>
+                        </NavbarAvatar>
+                    </LinkRoute>
+                )
+                console.log("Ypu ness")
+            }
+            else {
+                setIsLogin(
+                    <Flex alignItems={'center'}>
+                        <Button justifyContent={"end"} onClick={() => navigate("/login")}>Login/ register</Button>
+                    </Flex>
+                )
+            }
+        }
+        ChekIsYouLogin()
+    }, []);
+
+    const {isOpen, onOpen, onClose} = useDisclosure();
 
     return (
         <>
@@ -51,45 +82,29 @@ export default function NavbarComponent() {
                 <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
                     <IconButton
                         size={'md'}
-                        icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+                        icon={isOpen ? <CloseIcon/> : <HamburgerIcon/>}
                         aria-label={'Open Menu'}
-                        display={{ md: 'none' }}
+                        display={{md: 'none'}}
                         onClick={isOpen ? onClose : onOpen}
                     />
                     <HStack spacing={8} alignItems={'center'}>
-                        <Box>Logo</Box>
+                        <LinkRoute to={"/"}><Box>Logo</Box></LinkRoute>
                         <HStack
                             as={'nav'}
                             spacing={4}
-                            display={{ base: 'none', md: 'flex' }}>
-                                    <LinkRoute to={"/"}>test</LinkRoute>
-                                    <LinkRoute to={"/"}>test</LinkRoute>
-                                    <LinkRoute to={"/"}>test</LinkRoute>
-                                    <LinkRoute to={"/"}>test</LinkRoute>
-                                    <LinkRoute to={"/"}>test</LinkRoute>
+                            display={{base: 'none', md: 'flex'}}>
+                            <LinkRoute to={"/"}>test</LinkRoute>
+                            <LinkRoute to={"/"}>test</LinkRoute>
+                            <LinkRoute to={"/"}>test</LinkRoute>
+                            <LinkRoute to={"/"}>test</LinkRoute>
+                            <LinkRoute to={"/"}>test</LinkRoute>
                         </HStack>
                     </HStack>
-                    <Flex alignItems={'center'}>
-
-                            <Button justifyContent={"end"} onClick={onOpen}>Login/ register</Button>
-
-                            <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
-                                <ModalOverlay />
-                                <ModalContent>
-                                    <ModalHeader>Login</ModalHeader>
-                                    <ModalCloseButton />
-                                    < ModalBody>
-                                        <CustomersLogin />
-                                    </ModalBody>
-
-                                </ModalContent>
-                            </Modal>
-
-                    </Flex>
+                    {isLogin}
                 </Flex>
 
                 {isOpen ? (
-                    <Box pb={4} display={{ md: 'none' }}>
+                    <Box pb={4} display={{md: 'none'}}>
                         <Stack as={'nav'} spacing={4}>
                             {Links.map((link) => (
                                 <NavLink key={link}>{link}</NavLink>

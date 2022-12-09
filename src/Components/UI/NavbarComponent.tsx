@@ -93,7 +93,7 @@ export default function NavbarComponent() {
                             as={'nav'}
                             spacing={4}
                             display={{base: 'none', md: 'flex'}}>
-                            <LinkRoute to={"/"}>test</LinkRoute>
+                            <LinkRoute to={"/fims"}>Films</LinkRoute>
                             <LinkRoute to={"/"}>test</LinkRoute>
                             <LinkRoute to={"/"}>test</LinkRoute>
                             <LinkRoute to={"/"}>test</LinkRoute>

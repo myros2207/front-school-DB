@@ -7,22 +7,26 @@ export const FilmsContainer = styled.div`
     `
 export const FilmsPhoto = styled.img`
     border-radius: 5px ;
-    align-items: center;
+   
 `
 
 export const FilmsBox = styled.div`
-    margin: 10px 0;
-    //box-shadow: 1px 1px 1px 1px aquamarine;
-  background: red;
-  border: 1px solid;
+  margin: 10px 0;
+  background: #2B3A55;
   margin: 5px;
+  border-radius: 5px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `
 export const FilmsName =  styled.h2`
-
+  color: #E8C4C4;
 `
 
 export const FilmsDescription = styled.p`
-
+color: ;
     
 `
 

@@ -2,8 +2,9 @@ import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {ContainerGlobal} from "../GlobalStyle";
 import {FilmsBox, FilmsContainer, FilmsDescription, FilmsName, FilmsPhoto} from "./FilmsSyle";
+import {Link} from "react-router-dom";
 
-const FilmComponent = () => {
+const FilmsComponent = () => {
 
     const [allFilm, setAllFilm] = useState([])
 
@@ -16,8 +17,7 @@ const FilmComponent = () => {
             const get = await axios.get("http://localhost:9321/films")
             setAllFilm(get.data)
             console.log(allFilm)
-        }
-        catch {
+        } catch {
 
         }
     }
@@ -27,15 +27,16 @@ const FilmComponent = () => {
             <FilmsContainer>
                 {
                     allFilm.map(film =>
-                            // @ts-ignore
+                        // @ts-ignore
                         <FilmsBox>
-                            {/*@ts-ignore*/}
-                            {/*@ts-ignore*/}
-                            <FilmsPhoto src={film.image}/>
-                            {/*@ts-ignore*/}
-                            <FilmsName>{film.filmName}</FilmsName>
-                            {/*@ts-ignore*/}
-                            <FilmsDescription>{film.filmDescription}</FilmsDescription>
+                            <Link to={"/test"}>
+                                {/*@ts-ignore*/}
+                                <FilmsPhoto src={film.image}/></Link>
+                                {/*@ts-ignore*/}
+                                <FilmsName>{film.filmName}</FilmsName>
+                                {/*@ts-ignore*/}
+                                <FilmsDescription>{film.filmDescription}</FilmsDescription>
+                                {/*@ts-ignore*/}
 
                         </FilmsBox>
                     )
@@ -47,4 +48,4 @@ const FilmComponent = () => {
     );
 };
 
-export default FilmComponent;
+export default FilmsComponent;

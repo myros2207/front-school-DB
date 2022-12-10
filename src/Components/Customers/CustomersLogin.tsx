@@ -24,10 +24,11 @@ const CustomersLogin = () => {
                     "login": login,
                     "password": password
                 })
-                if (loginStatus.data === true) {
+                if (loginStatus.data.loggedIn === true) {
                     console.log("you ok")
                     navigate("/customers")
-                    secureLocalStorage.setItem("Login", login)
+                    localStorage.setItem("Login", login)
+                    localStorage.setItem("CustomerID", loginStatus.data.customerId)
                     window.location.reload()
                 } else if (loginStatus.data === false) {
                     setLoginError(

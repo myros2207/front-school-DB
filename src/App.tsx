@@ -5,9 +5,12 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from "./Components/Home/Home";
 import CustomerComponent from "./Components/Customers/CustomerComponent";
 import CustomersLogin from "./Components/Customers/CustomersLogin";
-import FilmComponent from "./Components/Fims/FilmComponent";
-
+import FilmsComponent from "./Components/Fims/FilmsComponent";
+import FilmsPage from "./Components/Fims/FilmsPage";
+import HallsComponent from "./Components/Halls/HallsComponent"
+import PremiersComponent from "./Components/Premieres/PremiersComponent";
 function App() {
+    // @ts-ignore
     return (
         <div className="App">
             {/*<NavbarComponent/>*/}
@@ -15,9 +18,11 @@ function App() {
                 <NavbarComponent/>
                 <Routes>
                     <Route path={"/"} element={<Home/>}></Route>
-                    <Route path={"/customers"} element={<CustomerComponent/>}></Route>
-                    <Route path={"/login"} element={<CustomersLogin/>}></Route>
-                    <Route path={"/films"} element={<FilmComponent/>}></Route>
+                    <Route path={"/customers"} element={<CustomerComponent/>}/>
+                    <Route path={"/login"} element={<CustomersLogin/>}/>
+                    <Route path={"/films"} element={<FilmsPage/>}/>
+                    <Route path={"/premieres"} element={<PremiersComponent/>}/>
+                    <Route path={"/halls"} element={<HallsComponent/>}/>
                 </Routes>
             </BrowserRouter>
         </div>

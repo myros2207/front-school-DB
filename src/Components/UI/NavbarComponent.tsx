@@ -54,22 +54,24 @@ export default function NavbarComponent() {
     useEffect(() => {
         const ChekIsYouLogin = () => {
 
-            if (secureLocalStorage.getItem("Login") !== " ") {
+            if (localStorage.getItem("Login") !== "") {
                 setIsLogin(
                     <LinkRoute to={"/customers"}>
                         <NavbarAvatar>
                         </NavbarAvatar>
                     </LinkRoute>
                 )
-                console.log("Ypu ness")
+                console.log("Ypu in acc")
             }
-            else {
+            else  {
                 setIsLogin(
                     <Flex alignItems={'center'}>
                         <Button justifyContent={"end"} onClick={() => navigate("/login")}>Login/ register</Button>
                     </Flex>
                 )
+                console.log("plese log")
             }
+
         }
         ChekIsYouLogin()
     }, []);
@@ -93,9 +95,9 @@ export default function NavbarComponent() {
                             as={'nav'}
                             spacing={4}
                             display={{base: 'none', md: 'flex'}}>
-                            <LinkRoute to={"/fims"}>Films</LinkRoute>
-                            <LinkRoute to={"/"}>test</LinkRoute>
-                            <LinkRoute to={"/"}>test</LinkRoute>
+                            <LinkRoute to={"/films"}>Films</LinkRoute>
+                            <LinkRoute to={"/premieres"}>Premieres</LinkRoute>
+                            <LinkRoute to={"/halls"}>Hall</LinkRoute>
                             <LinkRoute to={"/"}>test</LinkRoute>
                             <LinkRoute to={"/"}>test</LinkRoute>
                         </HStack>

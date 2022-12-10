@@ -9,6 +9,7 @@ import FilmsComponent from "./Components/Fims/FilmsComponent";
 import FilmsPage from "./Components/Fims/FilmsPage";
 import HallsComponent from "./Components/Halls/HallsComponent"
 import PremiersComponent from "./Components/Premieres/PremiersComponent";
+import PremiersById from "./Components/Premieres/PremiersById";
 function App() {
     // @ts-ignore
     return (
@@ -23,6 +24,7 @@ function App() {
                     <Route path={"/films"} element={<FilmsPage/>}/>
                     <Route path={"/premieres"} element={<PremiersComponent/>}/>
                     <Route path={"/halls"} element={<HallsComponent/>}/>
+                    <Route path={"/premieres/:premieresId"} element={<PremiersById/>}/>
                 </Routes>
             </BrowserRouter>
         </div>

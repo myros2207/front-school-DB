@@ -14,9 +14,8 @@ const FilmsComponent = () => {
 
     const GetAllFilms = async () => {
         try {
-            const get = await axios.get("http://localhost:9321/films")
-            setAllFilm(get.data)
-            console.log(allFilm)
+            const films = await axios.get("http://localhost:9321/films")
+            setAllFilm(films.data)
         } catch {
 
         }
@@ -32,11 +31,11 @@ const FilmsComponent = () => {
                             <Link to={"/test"}>
                                 {/*@ts-ignore*/}
                                 <FilmsPhoto src={film.image}/></Link>
-                                {/*@ts-ignore*/}
-                                <FilmsName>{film.filmName}</FilmsName>
-                                {/*@ts-ignore*/}
-                                <FilmsDescription>{film.filmDescription}</FilmsDescription>
-                                {/*@ts-ignore*/}
+                            {/*@ts-ignore*/}
+                            <FilmsName>{film.filmName}</FilmsName>
+                            {/*@ts-ignore*/}
+                            <FilmsDescription>{film.filmDescription}</FilmsDescription>
+                            {/*@ts-ignore*/}
 
                         </FilmsBox>
                     )

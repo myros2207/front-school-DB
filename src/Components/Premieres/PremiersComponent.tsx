@@ -10,38 +10,39 @@ const PremiersCompoenent = () => {
     const [allPremieres, setAllPremieres] = useState([])
     // @ts-ignore
     const [premiereId, setPremiereId] = useState("")
+    const [customerId, setCustomerId ] = useState("")
 
     useEffect(() => {
-        // GetPremieres()
+        GetPremieres()
     }, []);
 
     const GetPremieres = async () => {
         try {
             const premieres = await axios.get("http://localhost:9321/premieres/2022-12-14")
             setAllPremieres(premieres.data)
-            setPremiereId(premieres.data.filmId)
-            console.log(premieres.data)
-            console.log(premieres.data.map((film:any) => film.premiereId))
-
+            setPremiereId(premieres.data.premiereId)
+            // @ts-ignore
+            setCustomerId(localStorage.getItem("CustomerID"))
         }
         catch {
 
         }
         // @ts-ignore
-        console.log(allPremieres.map((film) => film.premiereId))
+        console.log(allPremieres.map((prem) => prem.premiereId))
     }
 
     const BuyTicket = async () => {
-        try {
-            const ticket = await axios.post("http://localhost:9321/ticket",{
-                "premiereId": premiereId,
-                "customerId": localStorage.getItem("CustomerID")
-            })
-            console.log(ticket.data)
-        }
-        catch {
-
-        }
+        // try {
+        //     const ticket = await axios.post("http://localhost:9321/ticket",{
+        //         "premiereId": premiereId,
+        //         "customerId": customerId
+        //     })
+        //     console.log(ticket.data)
+        // }
+        // catch {
+        //
+        // }
+        console.log(customerId + " id cust " + premiereId + " premiera id ")
     }
 
     return (
@@ -50,11 +51,11 @@ const PremiersCompoenent = () => {
             allPremieres.map((premieres) =>
                 <PremieresBox>
                     {/*@ts-ignore*/}
-                    {/*<Link to={"/premieres/"+premieres.premiereId}>*/}
+                    <Link to={"/premieres/"+premieres.premiereId}>
                         {/*@ts-ignore*/}
                         <img src={premieres.film.image}/>
-                        <button onClick={BuyTicket}>buy</button>
-                    {/*</Link>*/}
+                        <button onClick={(BuyTicket)} >buy</button>
+                    </Link>
                 </PremieresBox>
             )
             }

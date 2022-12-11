@@ -77,6 +77,7 @@ export default function NavbarComponent() {
     }, []);
 
     const {isOpen, onOpen, onClose} = useDisclosure();
+    const logo = require("./logo.png")
 
     return (
         <>
@@ -90,7 +91,7 @@ export default function NavbarComponent() {
                         onClick={isOpen ? onClose : onOpen}
                     />
                     <HStack spacing={8} alignItems={'center'}>
-                        <LinkRoute to={"/"}><Box>Logo</Box></LinkRoute>
+                        <LinkRoute to={"/"}><Box w={"10rem"}><img src={logo} alt=""/></Box></LinkRoute>
                         <HStack
                             as={'nav'}
                             spacing={4}

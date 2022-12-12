@@ -26,7 +26,7 @@ import {
 } from "@chakra-ui/react";
 import CustomersLogin from "../Customers/CustomersLogin";
 import secureLocalStorage from "react-secure-storage";
-import {NavbarAvatar} from "./NavbarStyled";
+import { NavbarAvatarImage} from "./NavbarStyled";
 // import { useEffect } from 'react';
 
 const Links = ['Dashboard', 'Projects', 'Team'];
@@ -50,18 +50,16 @@ export default function NavbarComponent() {
     const [isLogin, setIsLogin] = useState<any>("")
 
     const navigate = useNavigate()
-
+    const avatarImage = require("./pantomime.png")
     useEffect(() => {
         const ChekIsYouLogin = () => {
 
             if (localStorage.getItem("Login") !== "") {
                 setIsLogin(
                     <LinkRoute to={"/customers"}>
-                        <NavbarAvatar>
-                        </NavbarAvatar>
+                        <NavbarAvatarImage src={avatarImage}/>
                     </LinkRoute>
                 )
-                console.log("Ypu in acc")
             }
             else  {
                 setIsLogin(
@@ -69,7 +67,6 @@ export default function NavbarComponent() {
                         <Button justifyContent={"end"} onClick={() => navigate("/login")}>Login/ register</Button>
                     </Flex>
                 )
-                console.log("plese log")
             }
 
         }
@@ -99,8 +96,8 @@ export default function NavbarComponent() {
                             <LinkRoute to={"/films"}>Films</LinkRoute>
                             <LinkRoute to={"/premieres"}>Premieres</LinkRoute>
                             <LinkRoute to={"/halls"}>Hall</LinkRoute>
-                            <LinkRoute to={"/"}>test</LinkRoute>
-                            <LinkRoute to={"/"}>test</LinkRoute>
+                            <LinkRoute to={"/about"}>About</LinkRoute>
+                            <LinkRoute to={"/authors"}>Authors</LinkRoute>
                         </HStack>
                     </HStack>
                     {isLogin}
@@ -109,9 +106,12 @@ export default function NavbarComponent() {
                 {isOpen ? (
                     <Box pb={4} display={{md: 'none'}}>
                         <Stack as={'nav'} spacing={4}>
-                            {Links.map((link) => (
-                                <NavLink key={link}>{link}</NavLink>
-                            ))}
+                            <LinkRoute to={"/films"}>Films</LinkRoute>
+                            <LinkRoute to={"/premieres"}>Premieres</LinkRoute>
+                            <LinkRoute to={"/halls"}>Hall</LinkRoute>
+                            <LinkRoute to={"/about"}>About</LinkRoute>
+                            <LinkRoute to={"/authors"}>Authors</LinkRoute>
+
                         </Stack>
                     </Box>
                 ) : null}

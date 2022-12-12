@@ -10,6 +10,10 @@ import FilmsPage from "./Components/Fims/FilmsPage";
 import HallsComponent from "./Components/Halls/HallsComponent"
 import PremiersComponent from "./Components/Premieres/PremiersComponent";
 import PremiersById from "./Components/Premieres/PremiersById";
+import InfoAboutCinemaComponent from './Components/AboutCinema/InfoAboutCinemaComponent';
+import AuthorsComponent from "./Components/AboutCinema/AuthorsComponent";
+import PremieresPage from "./Components/Premieres/PremieresPage";
+import CustomersRegister from "./Components/Customers/CustomerRegister";
 function App() {
     // @ts-ignore
     return (
@@ -21,10 +25,13 @@ function App() {
                     <Route path={"/"} element={<Home/>}></Route>
                     <Route path={"/customers"} element={<CustomerComponent/>}/>
                     <Route path={"/login"} element={<CustomersLogin/>}/>
+                    <Route path={"/register"} element={<CustomersRegister/>}/>
                     <Route path={"/films"} element={<FilmsPage/>}/>
-                    <Route path={"/premieres"} element={<PremiersComponent/>}/>
+                    <Route path={"/premieres"} element={<PremieresPage/>}/>
                     <Route path={"/halls"} element={<HallsComponent/>}/>
                     <Route path={"/premieres/:premieresId"} element={<PremiersById/>}/>
+                    <Route path={"/about"} element={<InfoAboutCinemaComponent/>}/>
+                    <Route path={"authors"} element={<AuthorsComponent/>}/>
                 </Routes>
             </BrowserRouter>
         </div>

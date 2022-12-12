@@ -55,7 +55,7 @@ const CustomersLogin = () => {
                 <EntranceError>{loginError}</EntranceError>
                 <EntranceButtonBox>
                     <EntranceButton onClick={LogIn}>Login</EntranceButton>
-                    <EntranceButton>Register</EntranceButton>
+                    <EntranceButton onClick={() => navigate("/register")}>Register</EntranceButton>
                 </EntranceButtonBox>
             </EntranceContainer>
         </>

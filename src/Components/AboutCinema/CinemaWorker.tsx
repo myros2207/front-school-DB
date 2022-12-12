@@ -12,11 +12,20 @@ const CinemaWorker = () => {
         catch {
 
         }
+        console.log(allCinemaWorker)
     }
 
     return (
         <div>
-
+            <h1>Ilosc pracowików : {allCinemaWorker.length}</h1>
+            {
+                allCinemaWorker.map((work) =>
+                <div>
+                    
+                </div>
+                )
+            }
+            <button onClick={GetAllWorker}>Worker get</button>
         </div>
     );
 };

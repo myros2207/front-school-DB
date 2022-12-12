@@ -7,7 +7,7 @@ import {PremieresBox, PremieresIdBox, PremieresIdContainer} from "./PremieresSty
 const PremiersById = () => {
 
     const params = useParams()
-    const [premieresById, setPremieresById] = useState<any>([])
+    const [premieresById, setPremieresById] = useState([])
     const premiereId = params.premieresId
 
     useEffect(() => {
@@ -44,6 +44,13 @@ const PremiersById = () => {
         <ContainerGlobal>
             {
                 // premieresById[0].premiereId
+
+                // premieresById.map((premiere) =>
+                //     <div>
+                //         {/* @ts-ignore*/}
+                // <h1>{premiere.premiereId}</h1>
+                //     </div>
+                // )
             }
             <button onClick={GetPremieresById}>Get premieres</button>
         </ContainerGlobal>

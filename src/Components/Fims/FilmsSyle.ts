@@ -4,10 +4,15 @@ export const FilmsContainer = styled.div`
     
     display: grid;
     grid-template-columns: auto auto auto;
+  @media(max-width: 800px){
+    display: flex;
+    flex-direction: column;
+  }
     `
 export const FilmsPhoto = styled.img`
     border-radius: 5px ;
-   
+    width: 80%;
+    margin: auto;
 `
 
 export const FilmsBox = styled.div`

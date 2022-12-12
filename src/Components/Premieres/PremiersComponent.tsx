@@ -3,64 +3,61 @@ import axios from "axios";
 import {ContainerGlobal} from "../GlobalStyle";
 import {Link} from "react-router-dom";
 import { useEffect } from 'react';
-import {PremieresBox} from "./PremieresStyle";
+import {PremiereContainer, PremieresBox} from "./PremieresStyle";
+import {IPremieres} from "./IPremieres";
 
-const PremiersCompoenent = () => {
+const PremiersCompoenent = (premieres: IPremieres) => {
 
-    const [allPremieres, setAllPremieres] = useState([])
+    // const [allPremieres, setAllPremieres] = useState<IPremieres[]>([])
     // @ts-ignore
     const [premiereId, setPremiereId] = useState("")
     const [customerId, setCustomerId ] = useState("")
 
-    useEffect(() => {
-        GetPremieres()
-    }, []);
 
-    const GetPremieres = async () => {
+    //
+    // const GetPremieres = async () => {
+    //     try {
+    //         const premieres = await axios.get("http://localhost:9321/premieres/2022-12-14")
+    //         setAllPremieres(premieres.data)
+    //         setPremiereId(premieres.data.premiereId)
+    //         // @ts-ignore
+    //         setCustomerId(localStorage.getItem("CustomerID"))
+    //         console.log(premieres.data.premiereId)
+    //         console.log(premieres.data)
+    //     }
+    //     catch {
+    //
+    //     }
+    //     // @ts-ignore
+    // }
+
+    const BuyTicket = async () => {
         try {
-            const premieres = await axios.get("http://localhost:9321/premieres/2022-12-14")
-            setAllPremieres(premieres.data)
-            setPremiereId(premieres.data.premiereId)
-            // @ts-ignore
-            setCustomerId(localStorage.getItem("CustomerID"))
+            const ticket = await axios.post("http://localhost:9321/ticket",{
+                "premiereId": premieres.PremiereId.toString(),
+                "customerId": localStorage.getItem("CustomerID")
+            })
+            console.log(ticket.data)
         }
         catch {
 
         }
-        // @ts-ignore
-        console.log(allPremieres.map((prem) => prem.premiereId))
     }
-
-    const BuyTicket = async () => {
-        // try {
-        //     const ticket = await axios.post("http://localhost:9321/ticket",{
-        //         "premiereId": premiereId,
-        //         "customerId": customerId
-        //     })
-        //     console.log(ticket.data)
-        // }
-        // catch {
-        //
-        // }
-        console.log(customerId + " id cust " + premiereId + " premiera id ")
-    }
-
     return (
-        <ContainerGlobal>
-            {
-            allPremieres.map((premieres) =>
+        <>
+            {/*<PremiereContainer>*/}
                 <PremieresBox>
                     {/*@ts-ignore*/}
-                    <Link to={"/premieres/"+premieres.premiereId}>
+                    <Link to={"/premieres/"+premieres.PremiereId}>
                         {/*@ts-ignore*/}
-                        <img src={premieres.film.image}/>
-                        <button onClick={(BuyTicket)} >buy</button>
+                        <h1>{premieres.PremiereId}</h1>
+                        <img src={premieres.FilmImage}/>
                     </Link>
+                    <button onClick={(BuyTicket)} >buy</button>
                 </PremieresBox>
-            )
-            }
-            <button onClick={GetPremieres}>Get premieres</button>
-        </ContainerGlobal>
+            {/*</PremiereContainer>*/}
+
+        </>
     );
 };
 

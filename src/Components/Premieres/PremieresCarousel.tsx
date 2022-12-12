@@ -66,6 +66,7 @@ const PremieresCarousel = () => {
         <ContainerGlobal>
             <button onClick={GetPremieres}>getcarousel</button>
             <CarouselContainer>
+                <button onClick={Prev}> <span> &#10094; </span> </button>
                 {
                     currentPageIndex.map((premier) =>
                     <CarouselBox>
@@ -79,10 +80,9 @@ const PremieresCarousel = () => {
                     </CarouselBox>
                     )
                 }
-
+                <button onClick={Next}> <span>&#10095;</span> </button>
             </CarouselContainer>
-            <button onClick={Prev}> <span> &#10094; </span> </button>
-            <button onClick={Next}> <span>&#10095;</span> </button>
+
             <h1>strona : {currentPage} z {pageNumber.length + 1}</h1>
         </ContainerGlobal>
     );

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {HallName, HallContainer, HallBox, HallSeatsAmount} from "./HallsStyle"
 import {ContainerGlobal} from "../GlobalStyle";
@@ -6,6 +6,11 @@ const HallsComponent = () => {
 
     const [allHalls, setAllHalls] = useState([])
     const PhotoCinema = require("./cinema.png")
+
+    useEffect(() => {
+    GetAllHals()
+    }, []);
+
     const GetAllHals = async () => {
         try {
             const halls = await axios.get("http://localhost:9321/halls")
@@ -30,7 +35,6 @@ const HallsComponent = () => {
                         </HallBox>)
                 }
             </HallContainer>
-            <button onClick={GetAllHals}>Click</button>
 
         </ContainerGlobal>
     );

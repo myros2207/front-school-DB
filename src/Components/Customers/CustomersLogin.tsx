@@ -20,7 +20,7 @@ const CustomersLogin = () => {
     const LogIn = async () => {
         if (login !== "" && password !== "") {
             try {
-                const loginStatus = await axios.patch("http://localhost:9321/loginCustomer", {
+                const loginStatus = await axios.post("http://localhost:9321/loginCustomer", {
                     "login": login,
                     "password": password
                 })

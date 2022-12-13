@@ -7,5 +7,6 @@ export const TicketsContainer = styled.div`
 
 
 export const TicketBox = styled.div` 
-    
+    width: 100%;
+  
 `

@@ -8,7 +8,7 @@ import {
     Button,
     Flex,
     HStack,
-    IconButton,
+    IconButton, Image,
     Menu,
     MenuButton,
     MenuDivider,
@@ -75,6 +75,7 @@ export default function NavbarComponent() {
 
     const {isOpen, onOpen, onClose} = useDisclosure();
     const logo = require("./logo.png")
+    const seats = require("./seats.png")
 
     return (
         <>
@@ -108,7 +109,7 @@ export default function NavbarComponent() {
                         <Stack as={'nav'} spacing={4}>
                             <LinkRoute to={"/films"}>Films</LinkRoute>
                             <LinkRoute to={"/premieres"}>Premieres</LinkRoute>
-                            <LinkRoute to={"/halls"}>Hall</LinkRoute>
+                            <LinkRoute to={"/halls"}><Image w={"3rem"} src={seats} alt=""/></LinkRoute>
                             <LinkRoute to={"/about"}>About</LinkRoute>
                             <LinkRoute to={"/authors"}>Authors</LinkRoute>
 

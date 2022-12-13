@@ -10,6 +10,7 @@ const CustomerComponent = () => {
         localStorage.setItem("Login", "")
         localStorage.setItem("CustomerID", "")
         navigate("/")
+        window.location.reload()
     }
 
     return (

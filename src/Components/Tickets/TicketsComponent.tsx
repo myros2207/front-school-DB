@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {ContainerGlobal} from "../GlobalStyle";
 import {TicketBox, TicketsContainer} from "./TicketsStyle";
@@ -6,6 +6,10 @@ import {TicketBox, TicketsContainer} from "./TicketsStyle";
 const TicketsComponent = () => {
 
     const [allTickets, setAllTickets] = useState([])
+    useEffect(() => {
+        GetAllTickets()
+    }, []);
+
     const GetAllTickets = async () => {
         try {
             const tickets = await axios.get("http://localhost:9321/tickets/" + localStorage.getItem("CustomerID"))
@@ -34,7 +38,7 @@ const TicketsComponent = () => {
                     </TicketsContainer>
                 )
             }
-            <button onClick={GetAllTickets}>All tickets</button>
+            {/*<button onClick={GetAllTickets}>All tickets</button>*/}
         </ContainerGlobal>
     );
 };

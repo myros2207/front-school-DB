@@ -32,15 +32,21 @@ const PremiersCompoenent = (premieres: IPremieres) => {
     // }
 
     const BuyTicket = async () => {
-        try {
-            const ticket = await axios.post("http://localhost:9321/ticket",{
-                "premiereId": premieres.PremiereId.toString(),
-                "customerId": localStorage.getItem("CustomerID")
-            })
-            console.log(ticket.data)
-        }
-        catch {
+        if  (localStorage.getItem("CustomerID") != "") {
 
+
+            try {
+                const ticket = await axios.post("http://localhost:9321/ticket", {
+                    "premiereId": premieres.PremiereId.toString(),
+                    "customerId": localStorage.getItem("CustomerID")
+                })
+                console.log(ticket.data)
+            } catch {
+
+            }
+        }
+        else {
+            console.log("please login ")
         }
     }
     return (

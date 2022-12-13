@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {ContainerGlobal} from "../GlobalStyle";
-import {FilmsBox, FilmsContainer, FilmsDescription, FilmsName, FilmsPhoto} from "./FilmsSyle";
+import {FilmsBox, FilmsContainer, FilmsDescription, FilmsName, FilmsPhoto, FilmsRate} from "./FilmsSyle";
 import {Link} from "react-router-dom";
 
 const FilmsComponent = () => {
@@ -16,6 +16,7 @@ const FilmsComponent = () => {
         try {
             const films = await axios.get("http://localhost:9321/films")
             setAllFilm(films.data)
+            console.log(films.data)
         } catch {
 
         }
@@ -29,6 +30,8 @@ const FilmsComponent = () => {
                         // @ts-ignore
                         <FilmsBox>
                             <Link to={"/test"}>
+                                {/*@ts-ignore*/}
+                                <FilmsRate>{film.rate}</FilmsRate>
                                 {/*@ts-ignore*/}
                                 <FilmsPhoto src={film.image}/></Link>
                             {/*@ts-ignore*/}

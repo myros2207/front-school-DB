@@ -14,6 +14,7 @@ import InfoAboutCinemaComponent from './Components/AboutCinema/InfoAboutCinemaCo
 import AuthorsComponent from "./Components/AboutCinema/AuthorsComponent";
 import PremieresPage from "./Components/Premieres/PremieresPage";
 import CustomersRegister from "./Components/Customers/CustomerRegister";
+import PremiersByIdPage from "./Components/Premieres/PremiersByIdPage";
 function App() {
     // @ts-ignore
     return (
@@ -29,7 +30,7 @@ function App() {
                     <Route path={"/films"} element={<FilmsPage/>}/>
                     <Route path={"/premieres"} element={<PremieresPage/>}/>
                     <Route path={"/halls"} element={<HallsComponent/>}/>
-                    <Route path={"/premieres/:premieresId"} element={<PremiersById/>}/>
+                    <Route path={"/premieres/:premieresId"} element={<PremiersByIdPage/>}/>
                     <Route path={"/about"} element={<InfoAboutCinemaComponent/>}/>
                     <Route path={"authors"} element={<AuthorsComponent/>}/>
                 </Routes>

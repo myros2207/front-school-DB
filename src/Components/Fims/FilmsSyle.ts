@@ -4,7 +4,7 @@ export const FilmsContainer = styled.div`
     
     display: grid;
     grid-template-columns: auto auto auto;
-  @media(max-width: 800px){
+  @media(max-width: 760px){
     display: flex;
     flex-direction: column;
   }
@@ -12,7 +12,9 @@ export const FilmsContainer = styled.div`
 export const FilmsPhoto = styled.img`
     border-radius: 5px ;
     width: 80%;
+    height: 100%;
     margin: auto;
+  //z-index: 1;
 `
 
 export const FilmsBox = styled.div`
@@ -24,19 +26,22 @@ export const FilmsBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  //justify-content: center;
 `
 export const FilmsName =  styled.h2`
   color: #E8C4C4;
 `
 
 export const FilmsDescription = styled.p`
-color: ;
-    
+    font-size: 15px;
 `
 
 export const FilmsRate = styled.p`
-
+  position: absolute;
+  border: 1px solid;
+  border-radius: 20px;
+  width: 3% ;
+  //margin-left: 15vw ;
 `
 
 

@@ -1,7 +1,7 @@
 // @ts-ignore
 import React from 'react';
 import TicketsComponent from "../Tickets/TicketsComponent";
-import {ContainerGlobal} from "../GlobalStyle";
+import {ContainerGlobal, ContentGlobal} from "../GlobalStyle";
 import {useNavigate} from "react-router-dom";
 
 const CustomerComponent = () => {
@@ -15,9 +15,11 @@ const CustomerComponent = () => {
 
     return (
         <ContainerGlobal>
-            <h1>Twój login{localStorage.getItem("Login")}</h1>
-            <button onClick={LogOut}>Log out</button>
-            <TicketsComponent/>
+            <ContentGlobal>
+                <h1>Twój login{localStorage.getItem("Login")}</h1>
+                <button onClick={LogOut}>Log out</button>
+                <TicketsComponent/>
+            </ContentGlobal>
         </ContainerGlobal>
     );
 };

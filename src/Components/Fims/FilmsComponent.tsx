@@ -3,6 +3,7 @@ import axios from "axios";
 import {ContainerGlobal} from "../GlobalStyle";
 import {FilmsBox, FilmsContainer, FilmsDescription, FilmsName, FilmsPhoto, FilmsRate} from "./FilmsSyle";
 import {Link} from "react-router-dom";
+import {Box} from "@chakra-ui/layout";
 
 const FilmsComponent = () => {
 
@@ -23,28 +24,30 @@ const FilmsComponent = () => {
     }
 
     return (
-        <ContainerGlobal>
+        <>
             <FilmsContainer>
                 {
                     allFilm.map(film =>
                         // @ts-ignore
                         <FilmsBox>
                             <Link to={"/test"}>
-                                {/*@ts-ignore*/}
-                                <FilmsRate>{film.rate}</FilmsRate>
+
                                 {/*@ts-ignore*/}
                                 <FilmsPhoto src={film.image}/></Link>
                             {/*@ts-ignore*/}
                             <FilmsName>{film.filmName}</FilmsName>
+                            <Box w={"100%"}>
+                                {/*@ts-ignore*/}
+                                <FilmsRate>{film.rate}</FilmsRate>
+                            </Box>
                             {/*@ts-ignore*/}
                             <FilmsDescription>{film.filmDescription}</FilmsDescription>
-                            {/*@ts-ignore*/}
 
                         </FilmsBox>
                     )
                 }
             </FilmsContainer>
-        </ContainerGlobal>
+        </>
 
 
     );

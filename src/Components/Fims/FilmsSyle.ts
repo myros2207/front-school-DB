@@ -19,7 +19,7 @@ export const FilmsPhoto = styled.img`
 
 export const FilmsBox = styled.div`
   margin: 10px 0;
-  background: #2B3A55;
+  background: #570A57;
   margin: 5px;
   border-radius: 5px;
   text-align: center;
@@ -33,14 +33,18 @@ export const FilmsName =  styled.h2`
 `
 
 export const FilmsDescription = styled.p`
-    font-size: 15px;
+    font-size: 13px;
 `
 
 export const FilmsRate = styled.p`
-  position: absolute;
+  //position: absolute;
   border: 1px solid;
   border-radius: 20px;
-  width: 3% ;
+  margin-right: 10px;
+  background: #A91079;
+  padding: 5px;
+  float: right;
+  //width: 3% ;
   //margin-left: 15vw ;
 `
 

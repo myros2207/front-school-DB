@@ -2,7 +2,8 @@ import styled from "@emotion/styled";
 
 export const TicketsContainer = styled.div`
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto auto auto auto;
+  background: ;
 `
 
 

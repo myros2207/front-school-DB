@@ -3,7 +3,7 @@ import {IPremieres} from "./IPremieres";
 import axios from "axios";
 import PremiersComponent from "./PremiersComponent";
 import {PremiereContainer, PremieresBox} from "./PremieresStyle";
-import {ContainerGlobal} from "../GlobalStyle";
+import {ContainerGlobal, ContentGlobal} from "../GlobalStyle";
 
 const PremieresPage = () => {
 
@@ -19,8 +19,7 @@ const PremieresPage = () => {
             setAllPremieres(premieres.data)
             console.log(premieres.data)
 
-        }
-        catch {
+        } catch {
 
         }
         // @ts-ignore
@@ -28,19 +27,19 @@ const PremieresPage = () => {
 
     return (
         <ContainerGlobal>
-            <PremiereContainer>
-            {
-                allPremieres.map((premieres) =>
-                    <PremieresBox>
-                {/*        @ts-ignore*/}
-                <PremiersComponent PremiereId={premieres.premiereId} PremiereDate={premieres.premiereData} FilmImage={premieres.film.image} FilmTitle={premieres.film.filmName}/>
-                    </PremieresBox>
+            <ContentGlobal>
+                <PremiereContainer>
+                    {
+                        allPremieres.map((premieres) =>
+                            <PremieresBox>
+                                {/*        @ts-ignore*/}
+                                <PremiersComponent PremiereId={premieres.premiereId} PremiereDate={premieres.premiereData} FilmImage={premieres.film.image} FilmTitle={premieres.film.filmName}/>
+                            </PremieresBox>
+                        )
+                    }
+                </PremiereContainer>
 
-                )
-            }
-            </PremiereContainer>
-            <h2>Test</h2>
-            <button onClick={GetPremieres}>Get s</button>
+            </ContentGlobal>
         </ContainerGlobal>
     );
 };

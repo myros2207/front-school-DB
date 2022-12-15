@@ -25,21 +25,23 @@ const TicketsComponent = () => {
 
 
     return (
-        <ContainerGlobal>
+        <>
+            <TicketsContainer>
             {
                 allTickets.map((tickets) =>
-                    <TicketsContainer>
+
                         <TicketBox>
                             {/*@ts-ignore*/}
                             <h1>{tickets.premiere.film.filmName}</h1>
                             {/*@ts-ignore*/}
                             <img src={tickets.premiere.film.image}/>
                         </TicketBox>
-                    </TicketsContainer>
+
                 )
             }
+            </TicketsContainer>
             {/*<button onClick={GetAllTickets}>All tickets</button>*/}
-        </ContainerGlobal>
+        </>
     );
 };
 

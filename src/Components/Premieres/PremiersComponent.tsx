@@ -1,17 +1,18 @@
 import React, {useState} from 'react';
 import axios from "axios";
 import {ContainerGlobal} from "../GlobalStyle";
-import {Link} from "react-router-dom";
-import { useEffect } from 'react';
+import {Link, useNavigate} from "react-router-dom";
+import {useEffect} from 'react';
 import {PremiereContainer, PremieresBox} from "./PremieresStyle";
 import {IPremieres} from "./IPremieres";
 
 const PremiersCompoenent = (premieres: IPremieres) => {
 
+    const navigate = useNavigate()
     // const [allPremieres, setAllPremieres] = useState<IPremieres[]>([])
     // @ts-ignore
     const [premiereId, setPremiereId] = useState("")
-    const [customerId, setCustomerId ] = useState("")
+    const [customerId, setCustomerId] = useState("")
 
 
     //
@@ -32,7 +33,7 @@ const PremiersCompoenent = (premieres: IPremieres) => {
     // }
 
     const BuyTicket = async () => {
-        if  (localStorage.getItem("CustomerID") != "") {
+        if (localStorage.getItem("CustomerID") != "") {
 
 
             try {
@@ -41,26 +42,29 @@ const PremiersCompoenent = (premieres: IPremieres) => {
                     "customerId": localStorage.getItem("CustomerID")
                 })
                 console.log(ticket.data)
+                if (ticket.data === true) {
+                    alert("Kupiłes bilet")
+                    navigate("/customers")
+                }
             } catch {
 
             }
-        }
-        else {
-            console.log("please login ")
+        } else {
+            alert("If you want to buy a ticket, you need to register or log in )")
         }
     }
     return (
         <>
             {/*<PremiereContainer>*/}
-                <PremieresBox>
+            <PremieresBox>
+                {/*@ts-ignore*/}
+                <Link to={"/premieres/" + premieres.PremiereId}>
                     {/*@ts-ignore*/}
-                    <Link to={"/premieres/"+premieres.PremiereId}>
-                        {/*@ts-ignore*/}
-                        <h1>{premieres.PremiereId}</h1>
-                        <img src={premieres.FilmImage}/>
-                    </Link>
-                    <button onClick={(BuyTicket)} >buy</button>
-                </PremieresBox>
+                    <h1>{premieres.PremiereId}</h1>
+                    <img src={premieres.FilmImage}/>
+                </Link>
+                <button onClick={(BuyTicket)}>buy</button>
+            </PremieresBox>
             {/*</PremiereContainer>*/}
 
         </>

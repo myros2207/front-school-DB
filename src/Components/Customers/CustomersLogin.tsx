@@ -7,6 +7,7 @@ import React from 'react';
 import {useNavigate} from 'react-router-dom';
 import {EntranceButton, EntranceButtonBox, EntranceContainer, EntranceError, EntranceInput} from "./CustomersStyled";
 import secureLocalStorage from "react-secure-storage";
+import {ContainerGlobal} from "../GlobalStyle";
 
 const CustomersLogin = () => {
 
@@ -46,7 +47,7 @@ const CustomersLogin = () => {
 
 
     return (
-        <>
+        <ContainerGlobal>
             <EntranceContainer>
                 <EntranceInput placeholder="login" value={login}
                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setLogin(e.target.value)}/>
@@ -58,7 +59,7 @@ const CustomersLogin = () => {
                     <EntranceButton onClick={() => navigate("/register")}>Register</EntranceButton>
                 </EntranceButtonBox>
             </EntranceContainer>
-        </>
+        </ContainerGlobal>
     );
 };
 

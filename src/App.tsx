@@ -11,7 +11,7 @@ import HallsComponent from "./Components/Halls/HallsComponent"
 import PremiersComponent from "./Components/Premieres/PremiersComponent";
 import PremiersById from "./Components/Premieres/PremiersById";
 import InfoAboutCinemaComponent from './Components/AboutCinema/InfoAboutCinemaComponent';
-import AuthorsComponent from "./Components/AboutCinema/AuthorsComponent";
+import AuthorsComponent from "./Components/AboutCinema/Author/AuthorsComponent";
 import PremieresPage from "./Components/Premieres/PremieresPage";
 import CustomersRegister from "./Components/Customers/CustomerRegister";
 import PremiersByIdPage from "./Components/Premieres/PremiersByIdPage";

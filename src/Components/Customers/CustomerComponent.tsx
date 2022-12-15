@@ -15,7 +15,7 @@ const CustomerComponent = () => {
 
     return (
         <ContainerGlobal>
-            <h1>{localStorage.getItem("Login")}</h1>
+            <h1>Twój login{localStorage.getItem("Login")}</h1>
             <button onClick={LogOut}>Log out</button>
             <TicketsComponent/>
         </ContainerGlobal>

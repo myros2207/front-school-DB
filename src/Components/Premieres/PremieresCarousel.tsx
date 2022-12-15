@@ -23,7 +23,7 @@ const PremieresCarousel = () => {
         }
     }
     const [currentPage, setCurrentPage] = useState(1)
-    const [inOnePage, setInOnePage] = useState<number>(3)
+    const [inOnePage, setInOnePage] = useState<number>(5)
 
     const lastListPageIndex = currentPage * inOnePage
     const firstListPageIndex = lastListPageIndex - inOnePage

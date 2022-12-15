@@ -6,6 +6,7 @@ import React from 'react';
 
 import { useNavigate } from 'react-router-dom';
 import {EntranceContainer, EntranceInput} from "./CustomersStyled";
+import {ContainerGlobal} from "../GlobalStyle";
 
 const CustomersRegister = () => {
 
@@ -36,7 +37,7 @@ const CustomersRegister = () => {
         }
     }
     return (
-        <>
+        <ContainerGlobal>
             <EntranceContainer>
                 <EntranceInput placeholder="firstName" value={firstName} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFirstName(e.target.value)} />
                 <EntranceInput placeholder="secondName" value={secondName} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSecondName(e.target.value)} />
@@ -45,7 +46,7 @@ const CustomersRegister = () => {
                 <EntranceInput type={"password"} placeholder="password" value={password} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)} />
                 <Button onClick={Register}>Register</Button>
             </EntranceContainer>
-        </>
+        </ContainerGlobal>
     );
 };
 
